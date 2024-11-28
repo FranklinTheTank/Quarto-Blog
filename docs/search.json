@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "Hello and Welcome to My Corner of the Web!\nI’m embarking on an exciting adventure into the realms of data science and programming, with R as my trusty compass. This blog will serve as my digital notebook where I document my exploration of data manipulation, statistical analysis, and visualization, all through the lens of R.\nAs a fresh face in this field, I hope that my posts are approachable for everyone from the complete novice to the curious onlooker. My goal is to blend curiosity with learning, offering insights into topics that fascinate me.\nJoin me as we navigate through R’s syntax, explore its powerful libraries like ggplot2 and dplyr, and uncover the stories hidden within data. Whether you’re here to learn alongside me, share your knowledge, or just enjoy the journey, I’m thrilled you’re here. Let’s make sense of the data world together!"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -23,7 +23,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "quarto-blog",
+    "title": "Posts",
     "section": "",
     "text": "Post With Code\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\nHarlow Malloc\n\n\nNov 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\nTristan O’Malley\n\n\nNov 24, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   }
