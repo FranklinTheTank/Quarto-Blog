@@ -8,6 +8,8 @@ image: "image.jpg"
 
 This is a post with executable code.
 
+test test test
+
 ```{r}
 1 + 1
 ```
