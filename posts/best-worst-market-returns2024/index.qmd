@@ -1,10 +1,12 @@
 ---
-title: "2024 - Counting Chips"
-date: "2024-11-28"
+title: "Looking Back at Tech"
 author: "Rob"
-image: "wojack2.jpg"
+date: "2024-12-27"
 categories: [market]
+image: "wojack2.jpg"
 ---
+
+# A Look Back at Tech
 
 2024 is finally wrapping up, and it's time to reconnect with the family and friends you've been avoiding all year. As you gather around, beers in hand, you quickly realize that the market has made everyone (else) rich this year. They're tossing around buzzwords like: Clusters, Large Language Models, Silicon, Artificial Intelligence—words that have been soldered into your brain over the last few years. You lower your head in shame, knowing the only "chips" you bought this year were the ones that taste like Sour Cream and Onion.
 
