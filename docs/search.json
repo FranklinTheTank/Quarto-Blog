@@ -25,6 +25,13 @@
     "href": "index.html",
     "title": "Posts",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\nHarlow Malloc\n\n\nNov 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\nTristan O’Malley\n\n\nNov 24, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Your Document Title\n\n\n\n\n\n\nYour Name\n\n\nNov 28, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\nHarlow Malloc\n\n\nNov 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\nTristan O’Malley\n\n\nNov 24, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/best-worst-market-returns2024/index.html",
+    "href": "posts/best-worst-market-returns2024/index.html",
+    "title": "Your Document Title",
+    "section": "",
+    "text": "# Load the libraries that are going to be used\nlibrary(tidyverse)\nlibrary(tidyquant)\n\n\n# Define the stock symbols. These will be pilled from yahoo finance. This is the Bloomberg Magnificent 7.\nstock_symbols &lt;- c(\"AAPL\", \"AMZN\", \"GOOGL\", \"META\", \"MSFT\", \"NVDA\", \"TSLA\")\n\n# Get the prices from yahoo finance using tidyquant from last year year end to date. From the original data that is pulled in, only keep the clsoing price and date for each symbol. IF there are errors, just rerun.``\nstock_prices &lt;- tq_get(stock_symbols, from=\"2023-12-19\") %&gt;% \n  select(symbol, date, close)\n\n# Show the stock prices\nstock_prices\n\n# A tibble: 1,666 × 3\n   symbol date       close\n   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt;\n 1 AAPL   2023-12-19  197.\n 2 AAPL   2023-12-20  195.\n 3 AAPL   2023-12-21  195.\n 4 AAPL   2023-12-22  194.\n 5 AAPL   2023-12-26  193.\n 6 AAPL   2023-12-27  193.\n 7 AAPL   2023-12-28  194.\n 8 AAPL   2023-12-29  193.\n 9 AAPL   2024-01-02  186.\n10 AAPL   2024-01-03  184.\n# ℹ 1,656 more rows\n\n\n\ntheme_set(theme_tq())\n\nggplot(stock_prices, aes(date, close, color = symbol)) +\n  geom_line() +\n  theme_tq()"
   }
 ]
