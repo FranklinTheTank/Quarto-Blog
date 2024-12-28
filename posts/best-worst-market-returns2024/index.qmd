@@ -67,7 +67,7 @@ stock_prices %>%
             biggest_loss = min(cummin(close) - close))
 ```
 
-Now lets add some variation to our analysis. When looking back at our biggest winners and biggest losers, we often kick ourselves for not holding on a bit longer - we either left money on the table or we took a larger loss by not staying put. I believe it was the Bitcoiners who coined the term "HODL" (Hold on for dear life). What if we change the parameters of our analysis so that we have to hold the stock for at least 1 year or about 252 trading days before selling? Does this change our results?
+Now lets add some variation to our analysis. When looking back at our biggest winners and biggest losers, we often kick ourselves for not holding on a bit longer - we either left money on the table or we took a larger loss by not staying put. I believe it was the Bitcoiners who coined the term "HODL" (Hold on for dear life). What if we change the parameters of our analysis so that we have to hold the stock for at least 1 year or about 252 trading days before selling? Does this change our results??
 
 ```{r}
 # Separated into a mutate and a summarize just for the sake of clarity
