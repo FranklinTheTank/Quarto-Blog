@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rob">
-<meta name="dcterms.date" content="2024-12-27">
+<meta name="dcterms.date" content="2024-12-26">
 
-<title>Looking Back at Tech – Rob’s Blog</title>
+<title>A Fun Look Back – Rob’s Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Looking Back at Tech</h1>
+      <h1 class="title">A Fun Look Back</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">market</div>
               </div>
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 27, 2024</p>
+        <p class="date">December 26, 2024</p>
       </div>
     </div>
     
@@ -183,10 +183,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="a-look-back-at-tech" class="level1">
-<h1>A Look Back at Tech</h1>
-<p>2024 is finally wrapping up, and it’s time to reconnect with the family and friends you’ve been avoiding all year. As you gather around, beers in hand, you quickly realize that the market has made everyone (else) rich this year. They’re tossing around buzzwords like: Clusters, Large Language Models, Silicon, Artificial Intelligence—words that have been soldered into your brain over the last few years. You lower your head in shame, knowing the only “chips” you bought this year were the ones that taste like Sour Cream and Onion.</p>
-<p>For much of 2023 and 2024 market returns have seemingly been concentrated in a handful of technology companies, particularly those focused on artificial intelligence. As a thought experiment, I thought it would be interesting to see what the sweet gains would like if I was able to jump into a time machine and purchase these stocks on the best day. For added fun, (and as an illustration of my luck), I also wanted to see what the largest losses would be if I had purchased the stock right before it had its worst draw down over the period and then sold at the low.</p>
+<section id="if-i-knew-then-what-i-know-now" class="level1">
+<h1>If I knew then what I know now…</h1>
+<p>The year was 2013. I was fresh out of college and like any 21 year old with little money and even fewer responsibilities, I wanted to immediately plow what limited funds I had to my name into the stock market in hopes of making some extra money.</p>
+<p>From what I remember of those days- NFLX was a popular name. The company was rapidly gaining subscribers as it continued to transition from DVD rentals to streaming services. Following the death of Steve Jobs in 2011, AAPL had since released the iPhone 5 and speculation was swirling that the company was working on smart watch, which would later be released as the Apple Watch in 2015. Windows users were still complaining about Windows 8 as MSFT focused on hardware with its release of the Surface Pro. AMZN was becoming more of a household name for online shoppers and Amazon Web Services began to be a name you would hear at work. META was still known as Facebook at the time and was just a place to post memes to friends and family online. Following its post IPO plunge in 2012, ad revenues were starting to pick up for the company. TSLA was beginning work on a “Gigafactory” following the success of the Model S and NVDA created graphics cards for our souped up gaming PCs.</p>
+<p>With 2024 finally wrapping up, it is astonishing to look at many of these companies now and observe much they have changed over the last decade. Rather than distinct words like “car company” or “search engine” or “social network” being associated with these companies, we cannot talk about these companies without using shared buzzwords like Clusters, Large Language Models, Silicon Chips, and Artificial Intelligence.</p>
+<p>For much of 2023 and 2024 market returns have seemingly been concentrated in a handful of technology companies, particularly those focused on artificial intelligence. As a thought experiment, I thought it would be interesting to see what the sweet the gains would have been like if I was able to jump into a time machine and purchase these stocks on the best day (lowest price) since 2013. For added fun, (and as an illustration of my luck), I also wanted to see what the largest losses would be if I had purchased the stock right before it had its worst draw down over the period and then sold at the low.</p>
 <p>To set this up this scenario, we are going to look at the stocks that make up the Bloomberg Magnificent 7 - AAPL, AMZN, GOOGL, META, MSFT, NVDA, TSLA. We are going to find the highest and lowest amount of profits that could have been made if I purchased a stock at one close price and sold it at another close price (a total of 2 transactions). Lets assume that I cannot sell a stock before it has been purchased and stock can be bought and sold on the same day (resulting in a profit of $0).</p>
 <p>First, lets load the libraries that we are going to be using to conduct our analysis.</p>
 <div class="cell">
@@ -236,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>From the chart, it looks like there was a good amount of variance in 2020 following the 2020 global pandemic and the 2022 market downturn on the back of 40-year-high inflation that prompted the Federal Reserve to raise interest rates at the fasted rate in history. Next, we will cummax() and cummin() functions for each symbol to discover the highest and lowest future prices for each date.</p>
+<p>From the chart, it looks like there was a good amount of variance in 2020 following the 2020 global pandemic and the 2022 market downturn on the back of 40-year-high inflation that prompted the Federal Reserve to raise interest rates at the fasted rate in history. Next, we will use the cummax() and cummin() functions for each symbol to discover the highest and lowest future prices for each date.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(symbol, <span class="fu">desc</span>(date)) <span class="sc">%&gt;%</span> </span>
@@ -282,6 +284,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 7 TSLA           456.       -302. </code></pre>
 </div>
 </div>
+</section>
+<section id="lets-add-a-variation" class="level1">
+<h1>Lets add a variation…</h1>
 <p>Now lets add some variation to our analysis. When looking back at our biggest winners and biggest losers, we often kick ourselves for not holding on a bit longer - we either left money on the table or we took a larger loss by not staying put. I believe it was the Bitcoiners who coined the term “HODL” (Hold on for dear life). What if we change the parameters of our analysis so that we have to hold the stock for at least 1 year or about 252 trading days before selling? Does this change our results?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separated into a mutate and a summarize just for the sake of clarity</span></span>
