@@ -30,7 +30,7 @@ Next, we will define a vector called stock_symbols and place the tickers for the
 
 After the tickers are defined, we pass these tickers through tidyquant's built in tq_get() function, which will pull the daily volume and open, high, low, close, and adjusted stock prices for each of the symbols we defined. I am only interested in the closing price for each ticker, so I will use the select() function to extract the symbol, date, and close columns from the pulled data. Lets take a look at the first 10 rows to make sure we have the data we are looking for.
 
-```{r}
+```{r, fig.align='center'}
 # Define the stock symbols.
 stock_symbols <- c("AAPL", "AMZN", "GOOGL", "META", "MSFT", "NVDA", "TSLA")
 
@@ -43,7 +43,7 @@ head(stock_prices, 10)
 
 Next, let's visualize the price data over time. We will use ggplot (built into the tidyquant library).
 
-```{r}
+```{r, fig.align='center'}
 theme_set(theme_tq())
 
 ggplot(stock_prices, aes(date, close, color = symbol)) +
@@ -53,7 +53,7 @@ ggplot(stock_prices, aes(date, close, color = symbol)) +
 
 From the chart, it looks like there was a good amount of variance in 2020 following the 2020 global pandemic and the 2022 market downturn on the back of 40-year-high inflation that prompted the Federal Reserve to raise interest rates at the fasted rate in history. Next, we will use the cummax() and cummin() functions for each symbol to discover the highest and lowest future prices for each date.
 
-```{r}
+```{r, fig.align='center'}
 stock_prices %>% 
   arrange(symbol, desc(date)) %>% 
   group_by(symbol) %>% 
@@ -65,7 +65,7 @@ To better understand the functions and the data in the table - lets look at the 
 
 By finding the largest/smallest difference between each day's price and the highest/lowest future price, we can calculate the highest possible gain and largest possible loss per share over the time period assuming one purchase and one sale.
 
-```{r}
+```{r, fig.align='center'}
 stock_prices %>%
   arrange(symbol, desc(date)) %>%
   group_by(symbol) %>%
@@ -77,7 +77,7 @@ stock_prices %>%
 
 Now lets add some variation to our analysis. When looking back at our biggest winners and biggest losers, we often kick ourselves for not holding on a bit longer - we either left money on the table or we took a larger loss by not staying put. I believe it was the Bitcoiners who coined the term "HODL" (Hold on for dear life). What if we change the parameters of our analysis so that we have to hold the stock for at least 1 year or about 252 trading days before selling? Does this change our results?
 
-```{r}
+```{r, fig.align='center'}
 # Separated into a mutate and a summarize just for the sake of clarity
 stock_prices %>%
   arrange(symbol, desc(date)) %>%

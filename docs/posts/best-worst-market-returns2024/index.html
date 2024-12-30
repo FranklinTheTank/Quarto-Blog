@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Next, we will define a vector called stock_symbols and place the tickers for the companies that we are interested in looking at. The symbols I have chosen make up the Bloomberg Magnificent 7.</p>
 <p>After the tickers are defined, we pass these tickers through tidyquant’s built in tq_get() function, which will pull the daily volume and open, high, low, close, and adjusted stock prices for each of the symbols we defined. I am only interested in the closing price for each ticker, so I will use the select() function to extract the symbol, date, and close columns from the pulled data. Lets take a look at the first 10 rows to make sure we have the data we are looking for.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the stock symbols.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>stock_symbols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AAPL"</span>, <span class="st">"AMZN"</span>, <span class="st">"GOOGL"</span>, <span class="st">"META"</span>, <span class="st">"MSFT"</span>, <span class="st">"NVDA"</span>, <span class="st">"TSLA"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -224,22 +224,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Next, let’s visualize the price data over time. We will use ggplot (built into the tidyquant library).</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_tq</span>())</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stock_prices, <span class="fu">aes</span>(date, close, <span class="at">color =</span> symbol)) <span class="sc">+</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tq</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>From the chart, it looks like there was a good amount of variance in 2020 following the 2020 global pandemic and the 2022 market downturn on the back of 40-year-high inflation that prompted the Federal Reserve to raise interest rates at the fasted rate in history. Next, we will use the cummax() and cummin() functions for each symbol to discover the highest and lowest future prices for each date.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(symbol, <span class="fu">desc</span>(date)) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span> </span>
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>To better understand the functions and the data in the table - lets look at the 10th row within the table. The closing price of AAPL on 12-12-2024 was $247.96 and what the lowest for the last 10 market days. The highest in the future was $259.02, meaning that if you had purchased AAPL on 12-12-2024, you would have gained over $11 per share with no draw down on your position over the last 10 market days.</p>
 <p>By finding the largest/smallest difference between each day’s price and the highest/lowest future price, we can calculate the highest possible gain and largest possible loss per share over the time period assuming one purchase and one sale.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(symbol, <span class="fu">desc</span>(date)) <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(symbol) <span class="sc">%&gt;%</span></span>
@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lets-add-a-variation" class="level1">
 <h1>Lets add a variation…</h1>
 <p>Now lets add some variation to our analysis. When looking back at our biggest winners and biggest losers, we often kick ourselves for not holding on a bit longer - we either left money on the table or we took a larger loss by not staying put. I believe it was the Bitcoiners who coined the term “HODL” (Hold on for dear life). What if we change the parameters of our analysis so that we have to hold the stock for at least 1 year or about 252 trading days before selling? Does this change our results?</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separated into a mutate and a summarize just for the sake of clarity</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(symbol, <span class="fu">desc</span>(date)) <span class="sc">%&gt;%</span></span>
